@@ -1,0 +1,433 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: #17091e;
+  color: white;
+}
+
+button, input {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 15px;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 15% 20%, #a52d7455, transparent 48%),
+    radial-gradient(ellipse at 85% 80%, #7136ac66, transparent 50%),
+    linear-gradient(145deg, #17091e, #361433, #17091e);
+}
+
+.love-card {
+  width: min(100%, 480px);
+  padding: 30px 25px;
+  border: 1px solid #ffffff30;
+  border-radius: 30px;
+  background: #ffffff0d;
+  backdrop-filter: blur(22px);
+  box-shadow: 0 20px 90px #ff3d9a25;
+  text-align: center;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid #ff8cc060;
+  border-radius: 40px;
+  background: #ff5c9c20;
+  color: #ffb4d3;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: clamp(35px, 8vw, 49px);
+  margin: 19px 0 7px;
+  letter-spacing: -2px;
+}
+
+h1 span {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.35em;
+  font-weight: normal;
+  color: #ff85b9;
+  text-shadow: 0 0 28px #ff4c9b90;
+}
+
+.subtitle {
+  color: #e3b9d0;
+  line-height: 1.7;
+  font-size: 13px;
+  margin-bottom: 23px;
+}
+
+.name-field {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.name-field label {
+  display: block;
+  color: #ffd1e4;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.name-field input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ff9fcb55;
+  border-radius: 12px;
+  outline: none;
+  background: #ffffff12;
+  color: white;
+}
+
+.name-field input:focus {
+  border-color: #ff8cbd;
+}
+
+.camera-box {
+  height: 300px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #ff86b875;
+  background: #150b1e;
+  box-shadow: inset 0 0 40px #ff6ba51b;
+}
+
+.camera-box.found {
+  border-color: #ff8bbf;
+  box-shadow: 0 0 35px #ff4f9d55;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.camera-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #f6b6d2;
+  font-size: 13px;
+}
+
+.camera-placeholder svg {
+  color: #ff5c9c;
+  filter: drop-shadow(0 0 25px #ff5c9c);
+  animation: heartbeat 1.5s infinite;
+}
+
+.corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: #ffadd3;
+  border-style: solid;
+}
+
+.tl {
+  top: 17px;
+  left: 17px;
+  border-width: 3px 0 0 3px;
+}
+
+.tr {
+  top: 17px;
+  right: 17px;
+  border-width: 3px 3px 0 0;
+}
+
+.bl {
+  bottom: 17px;
+  left: 17px;
+  border-width: 0 0 3px 3px;
+}
+
+.br {
+  bottom: 17px;
+  right: 17px;
+  border-width: 0 3px 3px 0;
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #ff8dbf;
+  box-shadow: 0 0 20px 5px #ff4b9d;
+  animation: scanning 3s linear infinite alternate;
+}
+
+.camera-status {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+  padding: 9px 15px;
+  border-radius: 30px;
+  background: #1c0a22cc;
+  color: #ffb6d8;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.heart-overlay {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  font-size: 55px;
+  animation: floatingHeart 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px #ff6ca7);
+}
+
+.status-text {
+  padding: 17px 0;
+  color: #ffb9d7;
+  font-size: 13px;
+}
+
+.message {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #ff9ac44d;
+  background: linear-gradient(145deg, #ff5b9822, #ffffff08);
+  animation: appear 0.7s ease;
+}
+
+.message-heart {
+  font-size: 30px;
+}
+
+.message h2 {
+  color: #ffc0dd;
+  font-size: 19px;
+}
+
+.message p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #fff0f7;
+}
+
+.love-signature {
+  font-family: 'Great Vibes', cursive;
+  color: #ff99c7;
+  font-size: 25px;
+}
+
+.camera-button,
+.music-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(
+    90deg,
+    #ff4e98,
+    #bd4dce
+  );
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 30px #ff4e9855;
+  transition: transform 0.2s;
+}
+
+.camera-button:hover,
+.music-toggle:hover {
+  transform: translateY(-3px);
+}
+
+.camera-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.music-player {
+  margin-top: 20px;
+  padding: 17px;
+  background: linear-gradient(
+    135deg,
+    #ff5c9c20,
+    #9d4edd20
+  );
+  border: 1px solid #ff9dcb50;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+}
+
+.music-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.music-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  background: #ff5c9c25;
+  color: #ff9bc9;
+  animation: musicPulse 2s infinite;
+}
+
+.music-info strong {
+  display: block;
+  color: #ffc0dd;
+  font-size: 14px;
+}
+
+.music-info small {
+  display: block;
+  margin-top: 5px;
+  color: #dca6c5;
+  font-size: 11px;
+}
+
+.music-toggle {
+  padding: 11px;
+  border-radius: 12px;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  font-size: 12px;
+  color: #ffc0dd;
+}
+
+.volume-control input {
+  flex: 1;
+  min-width: 0;
+  accent-color: #ff70ae;
+}
+
+.music-error {
+  margin-top: 12px;
+  color: #ffb3c7;
+  background: #ff4e9820;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+footer {
+  color: #a87d9b;
+  font-size: 11px;
+  margin-top: 23px;
+}
+
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  top: -50px;
+  animation: falling linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes falling {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(115vh) rotate(360deg);
+  }
+}
+
+@keyframes scanning {
+  from { top: 0%; }
+  to { top: 100%; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes floatingHeart {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -18px);
+  }
+}
+
+@keyframes musicPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #ff5c9c);
+  }
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 15px #ff5c9c);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .love-card {
+    padding: 22px 15px;
+  }
+
+  .camera-box {
+    height: 260px;
+  }
+}
